@@ -1,0 +1,598 @@
+<list>
+  <ProcessDefinition>
+    <processDefinitionPK>
+      <companyId>1</companyId>
+      <processId>PedidodeCompra</processId>
+    </processDefinitionPK>
+    <processDescription>Pedido de Compra</processDescription>
+    <instruction></instruction>
+    <active>true</active>
+    <publicProcess>false</publicProcess>
+    <volumeId>Default</volumeId>
+    <categoryId>Compras</categoryId>
+    <managerEngineAllocationId></managerEngineAllocationId>
+    <snapshotFrequency>0</snapshotFrequency>
+    <baseDay>0</baseDay>
+    <baseMonth>0</baseMonth>
+    <periodId>Default</periodId>
+    <uniqueCardVersion>false</uniqueCardVersion>
+    <keyWord></keyWord>
+    <complementsLevel>1</complementsLevel>
+    <notifyRequisitionerComplements>true</notifyRequisitionerComplements>
+    <notifyManagerComplements>false</notifyManagerComplements>
+    <deadlineTime>0</deadlineTime>
+    <warningDeadlineTime>0</warningDeadlineTime>
+    <notifyAuthorityComplements>true</notifyAuthorityComplements>
+  </ProcessDefinition>
+  <ProcessDefinitionVersion>
+    <processDefinitionVersionPK>
+      <companyId>1</companyId>
+      <processId>Pedido de Compra</processId>
+      <version>18</version>
+    </processDefinitionVersionPK>
+    <versionDescription></versionDescription>
+    <formId>45</formId>
+    <editionMode>true</editionMode>
+    <updateAttachmentsVersion>false</updateAttachmentsVersion>
+    <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
+    <active>true</active>
+    <blockedVersion>false</blockedVersion>
+    <counterSign>false</counterSign>
+    <openInstances>0</openInstances>
+    <bpmnVersion>2</bpmnVersion>
+    <processStates/>
+    <favorito>false</favorito>
+    <inheritFormSecurity>false</inheritFormSecurity>
+    <mobileReady>false</mobileReady>
+  </ProcessDefinitionVersion>
+  <list>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>PedidodeCompra</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </processStatePK>
+      <stateName>Início</stateName>
+      <stateDescription>Início</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>true</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>90</positionX>
+      <positionY>60</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>10</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>PedidodeCompra</processId>
+        <version>1</version>
+        <sequence>5</sequence>
+      </processStatePK>
+      <stateName>Aprovação PC</stateName>
+      <stateDescription>Aprovação PC</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>true</joint>
+      <agreementPercentage>1</agreementPercentage>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;aprovadores_pc&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>2</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>160</positionX>
+      <positionY>200</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>PedidodeCompra</processId>
+        <version>1</version>
+        <sequence>9</sequence>
+      </processStatePK>
+      <stateName>Pedido Aprovado</stateName>
+      <stateDescription>Pedido Aprovado</stateDescription>
+      <instruction>Esta atividade indica que o processo terminado e que não ocorrerá nenhum tipo de pós processamento.</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>366</positionX>
+      <positionY>181</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>68</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>PedidodeCompra</processId>
+        <version>1</version>
+        <sequence>12</sequence>
+      </processStatePK>
+      <stateName>Pedido Rejeitado</stateName>
+      <stateDescription>Pedido Rejeitado</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>370</positionX>
+      <positionY>260</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>65</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+  </list>
+  <list/>
+  <list>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>PedidodeCompra</processId>
+        <version>1</version>
+        <linkSequence>6</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>4</initialStateSequence>
+      <finalStateSequence>5</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>PedidodeCompra</processId>
+        <version>1</version>
+        <linkSequence>8</linkSequence>
+      </processLinkPK>
+      <actionLabel>Aprovar PC</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>5</initialStateSequence>
+      <finalStateSequence>9</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>PedidodeCompra</processId>
+        <version>1</version>
+        <linkSequence>11</linkSequence>
+      </processLinkPK>
+      <actionLabel>Reprovar PC</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>5</initialStateSequence>
+      <finalStateSequence>12</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+  </list>
+  <list/>
+  <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>calculateAgreement</eventId>
+        <processId>PedidodeCompra</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>/****** &#xd;** Enable customization script to change agreement calculation. &#xd;** Input: &#xd;**	stateId -&gt; Current state, whose agreement percentage is being calculated. &#xd;**	agreementData.get(&quot;currentPercentage&quot;) -&gt; Current percentage, calculated by the workflow engine&#xd;**	agreementData.get(&quot;currentDestState&quot;) -&gt; Current destination state. Zero, if process won&apos;t move&#xd;**	agreementData.get(&quot;currentDestUsers&quot;) -&gt; Current destination users. Empty if process won&apos;t move&#xd;**/&#xd;function calculateAgreement(currentState, agreementData) {&#xd;	&#xd;    log.info(&quot;Consenso Atual: &quot; + agreementData.get(&quot;currentPercentage&quot;));&#xd;    log.info(&quot;Atividade Destino Atual: &quot; +  getValue(&quot;WKNextState&quot;));&#xd;    log.info(&quot;Usuario Destino Atual: &quot; + agreementData.get(&quot;currentDestUsers&quot;));&#xd;      &#xd;    //Altera o consenso&#xd;    agreementData.put(&quot;currentPercentage&quot;, 100);&#xd;    agreementData.put(&quot;currentDestState&quot;, getValue(&quot;WKNextState&quot;));&#xd;    agreementData.put(&quot;currentDestUsers&quot;, agreementData.get(&quot;currentDestUsers&quot;));&#xd;	&#xd;}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>beforeStateEntry</eventId>
+        <processId>PedidodeCompra</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>var replacer = function(key, value) {&#xd;
+   var returnValue = value;&#xd;
+   try {&#xd;
+      if (value.getClass() !== null) { // If Java Object&#xd;
+         // qie.debug(key + &apos;: value.getClass() = &apos; + value.getClass());&#xd;
+         if (value instanceof java.lang.Number) {&#xd;
+            returnValue = 1 * value;&#xd;
+         } else if (value instanceof java.lang.Boolean) {&#xd;
+            returnValue = value.booleanValue();&#xd;
+         } else { // if (value instanceof java.lang.String) {&#xd;
+            returnValue = &apos;&apos; + value;&#xd;
+         }&#xd;
+      }&#xd;
+   } catch (err) {&#xd;
+      // No worries... not a Java object&#xd;
+   }&#xd;
+   return returnValue;&#xd;
+};&#xd;
+&#xd;
+function beforeStateEntry(sequenceId)&#xd;
+{&#xd;
+&#xd;
+	var atividade_aprovado 	= 9;&#xd;
+	&#xd;
+	if(sequenceId == atividade_aprovado)&#xd;
+	{&#xd;
+		&#xd;
+		if(hAPI.getCardValue(&quot;adiantamento&quot;) == &quot;1&quot;)&#xd;
+		{&#xd;
+			log.info(&apos;Envio email: passo 1&apos;);			&#xd;
+			var cEmail=getTemplateEmail();&#xd;
+			cEmail=cEmail.replace(&apos;${DATA_EMISSAO}&apos;,hAPI.getCardValue(&quot;C1_EMISSAO&quot;))&#xd;
+			 			  .replace(&apos;${VALOR}&apos;,hAPI.getCardValue(&quot;total_pedido&quot;))&#xd;
+			             .replace(&apos;${FORNECEDOR}&apos;, hAPI.getCardValue(&quot;fornecedor&quot;))&#xd;
+			             .replace(&apos;${USUARIO}&apos;, hAPI.getCardValue(&quot;C1_SOLICIT&quot;));&#xd;
+			&#xd;
+			var obj = new com.fluig.foundation.mail.service.EMailServiceBean();&#xd;
+			log.info(&apos;Envio email: passo 2&apos;);&#xd;
+			obj.simpleEmail(1,&quot;Notificação sobre inclusão de Pagamento antecipado&quot;, &quot;nao-responder@nao-responder.com.br&quot;, &quot;gerencia.ti@bandeirantes.agr.br&quot;, cEmail, &quot;text/html&quot;);&#xd;
+			log.info(&apos;Email enviado&apos;);&#xd;
+			&#xd;
+			return true;&#xd;
+		}	&#xd;
+		&#xd;
+		var obj = {};&#xd;
+		&#xd;
+		obj.incluirPedido = [];&#xd;
+		&#xd;
+		var pc = (&quot;000000&quot; + getValue(&quot;WKNumProces&quot;) ).slice(-6);&#xd;
+		&#xd;
+		var obj_pc = {};		&#xd;
+		obj_pc.numeroPedido 		= pc;&#xd;
+		obj_pc.dataEmissao 			= hAPI.getCardValue(&quot;C1_EMISSAO&quot;);&#xd;
+		obj_pc.fornecedor 			= hAPI.getCardValue(&quot;COD_FORNECEDOR&quot;);&#xd;
+		obj_pc.loja 				= hAPI.getCardValue(&quot;LOJA_FORNECEDOR&quot;);&#xd;
+		obj_pc.condicaoPagamento 	= hAPI.getCardValue(&quot;cod_condicao_pagamento&quot;);&#xd;
+		obj_pc.filialEntrega 		= hAPI.getCardValue(&quot;COD_C1_FILENT&quot;);&#xd;
+		obj_pc.tipoFrete 			= hAPI.getCardValue(&quot;tipo_frete&quot;);&#xd;
+		obj_pc.valorFrete 			= hAPI.getCardValue(&quot;valorFrete&quot;) == &quot;&quot; ? 0 : parseFloat( hAPI.getCardValue(&quot;valorFrete&quot;).replace(&quot;.&quot;,&quot;&quot;).replace(&quot;,&quot;,&quot;.&quot;) );&#xd;
+		obj_pc.despesa 				= hAPI.getCardValue(&quot;despesas&quot;) == &quot;&quot; ? 0 : parseFloat( hAPI.getCardValue(&quot;despesas&quot;).replace(&quot;.&quot;,&quot;&quot;).replace(&quot;,&quot;,&quot;.&quot;) );&#xd;
+		obj_pc.seguro 				= hAPI.getCardValue(&quot;seguro&quot;) == &quot;&quot; ? 0 : parseFloat( hAPI.getCardValue(&quot;seguro&quot;).replace(&quot;.&quot;,&quot;&quot;).replace(&quot;,&quot;,&quot;.&quot;) );&#xd;
+		&#xd;
+		obj_pc.Itens = [];		&#xd;
+		var processo = getValue(&quot;WKNumProces&quot;);&#xd;
+	    var campos = hAPI.getCardData(processo);&#xd;
+	    var contador = campos.keySet().iterator();&#xd;
+	    &#xd;
+	    while (contador.hasNext()) {&#xd;
+	        var id = contador.next();&#xd;
+	        &#xd;
+	        if (id.match(/item___/)) {&#xd;
+	        	&#xd;
+	        	var campo = campos.get(id);&#xd;
+	            var id   = id.split(&quot;___&quot;)[1];&#xd;
+	            &#xd;
+	            var item 	= {};&#xd;
+	            item.codigoProduto 		= hAPI.getCardValue(&quot;cod_produto___&quot;+id);&#xd;
+	            item.quantidade 		= parseFloat(hAPI.getCardValue(&quot;quantidade___&quot;+id));&#xd;
+	            item.preco 				= parseFloat( hAPI.getCardValue(&quot;preco___&quot;+id).replace(&quot;.&quot;,&quot;&quot;).replace(&quot;,&quot;,&quot;.&quot;) );&#xd;
+	            item.total 				= parseFloat( hAPI.getCardValue(&quot;total___&quot;+id).replace(&quot;.&quot;,&quot;&quot;).replace(&quot;,&quot;,&quot;.&quot;) );&#xd;
+	            item.tes 				= hAPI.getCardValue(&quot;cod_tes___&quot;+id);&#xd;
+	            &#xd;
+	            obj_pc.Itens.push(item);&#xd;
+	        	&#xd;
+	        }&#xd;
+	    }&#xd;
+		&#xd;
+		&#xd;
+		obj.incluirPedido.push( obj_pc );&#xd;
+		&#xd;
+		var cnst = new Array();&#xd;
+		cnst.push(DatasetFactory.createConstraint(&quot;unidade&quot;, hAPI.getCardValue(&quot;COD_C1_UNIDREQ&quot;), hAPI.getCardValue(&quot;COD_C1_UNIDREQ&quot;), ConstraintType.MUST));&#xd;
+		cnst.push(DatasetFactory.createConstraint(&quot;filial&quot;, hAPI.getCardValue(&quot;COD_C1_FILIAL&quot;), hAPI.getCardValue(&quot;COD_C1_FILIAL&quot;), ConstraintType.MUST));&#xd;
+		&#xd;
+		var inclui_sc = DatasetFactory.getDataset(&quot;inclui_pc&quot;, [ JSON.stringify( obj, replacer ) ], cnst, null);		&#xd;
+		if(inclui_sc.getValue(0, &quot;statusCode&quot;) != &quot;200&quot;)&#xd;
+		{&#xd;
+			throw &quot;Erro ao gerar PC: &quot; + inclui_sc.getValue(0, &quot;mensagem&quot;)&#xd;
+		}&#xd;
+		&#xd;
+		hAPI.setCardValue(&quot;json_pc&quot;, JSON.stringify( obj, replacer ) );&#xd;
+		hAPI.setCardValue(&quot;C1_NUM&quot;, inclui_sc.getValue(0, &quot;numeroSolicitacao&quot;)  );&#xd;
+		&#xd;
+	}&#xd;
+&#xd;
+}&#xd;
+&#xd;
+function getTemplateEmail()&#xd;
+{&#xd;
+	return &apos;&lt;html&gt; &apos;+&#xd;
+			&apos;&lt;head&gt; &apos;+&#xd;
+			&apos;    &lt;meta charset=&quot;UTF-8&quot;&gt;&apos;+&#xd;
+			&apos;	&lt;title&gt;Informações Pagamento Antecipado&lt;/title&gt; &apos;+&#xd;
+			&apos;	&lt;style&gt; &apos;+&#xd;
+			&apos;		.DescrMsgForum { &apos;+&#xd;
+			&apos;						font-size: 14px;    &apos;+&#xd;
+			&apos;					   } &apos;+&#xd;
+			&apos;		.note { &apos;+&#xd;
+			&apos;				font-size: 14px; &apos;+&#xd;
+			&apos;				font-weight: bold; &apos;+&#xd;
+			&apos;			  } &apos;+&#xd;
+			&apos;       .container{&apos;+&#xd;
+			&apos;           margin-top: 15px;&apos;+&#xd;
+			&apos;           margin-left: 15px;&apos;+&#xd;
+			&apos;       }&apos;+&#xd;
+			&apos;&lt;/style&gt; &apos;+&#xd;
+			&apos;&lt;/head&gt; &apos;+&#xd;
+			&apos;&lt;body class=&quot;container&quot;&gt; &apos;+&#xd;
+			&apos;	&lt;div align=&quot;left&quot;&gt; &apos;+&#xd;
+			&apos;		&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot;&gt; &apos;+&#xd;
+			&apos;			&lt;tbody&gt; &apos;+&#xd;
+			&apos;				&lt;tr&gt; &apos;+&#xd;
+			&apos;					&lt;td&gt; &apos;+&#xd;
+			&apos;						&lt;p class=&quot;DescrMsgForum&quot;&gt;Prezado(a),&lt;/p&gt; &apos;+&#xd;
+			&apos;						&lt;p class=&quot;DescrMsgForum&quot;&gt;&apos;+&#xd;
+			&apos;                           Foi incluído no dia ${DATA_EMISSAO} um pagamento antecipado no valor de R$ ${VALOR} para o fornecedor ${FORNECEDOR} pelo usuário ${USUARIO}. &lt;br&gt;&apos;+&#xd;
+			&apos;                           Caso tenha alguma dúvida, por favor entrar em contato com o Departamento Financeiro. &apos;+&#xd;
+			&apos;                        &lt;/p&gt; &apos;+&#xd;
+			&apos;						&lt;p class=&quot;DescrMsgForum&quot;&gt;Atenciosamente, &lt;/p&gt; &apos;+&#xd;
+			&apos;						&lt;p class=&quot;DescrMsgForum&quot;&gt;Equipe Financeira.&lt;/p&gt; &apos;+&#xd;
+			&apos;						&lt;br&gt;							 &apos;+&#xd;
+			&apos;					&lt;/td&gt; &apos;+&#xd;
+			&apos;				&lt;/tr&gt; &apos;+&#xd;
+			&apos;				&lt;tr&gt; &apos;+&#xd;
+			&apos;					&lt;td&gt;&amp;nbsp;&lt;/td&gt; &apos;+&#xd;
+			&apos;				&lt;/tr&gt; &apos;+&#xd;
+			&apos;			&lt;/tbody&gt; &apos;+&#xd;
+			&apos;		&lt;/table&gt; &apos;+&#xd;
+			&apos;	&lt;/div&gt; &apos;+&#xd;
+			&apos;	&lt;br /&gt; &apos;+&#xd;
+			&apos;&lt;/body&gt; &apos;+&#xd;
+			&apos;&lt;/html&gt; &apos;;&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+  </list>
+  <list/>
+  <list>
+    <SwimLane>
+      <color>FFFFFF</color>
+      <height>290</height>
+      <width>831</width>
+      <positionX>10</positionX>
+      <positionY>10</positionY>
+      <stateName>PEDIDO DE COMPRA</stateName>
+      <type>1</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>PedidodeCompra</processId>
+        <version>1</version>
+        <sequence>1</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>FFFFFF</color>
+      <height>145</height>
+      <width>801</width>
+      <positionX>40</positionX>
+      <positionY>10</positionY>
+      <stateName>SOLICITANTE</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>PedidodeCompra</processId>
+        <version>1</version>
+        <sequence>2</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>FFFFFF</color>
+      <height>145</height>
+      <width>801</width>
+      <positionX>40</positionX>
+      <positionY>155</positionY>
+      <stateName>APROVADOR</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>PedidodeCompra</processId>
+        <version>1</version>
+        <sequence>3</sequence>
+      </swimLanePK>
+    </SwimLane>
+  </list>
+  <list/>
+  <list/>
+  <list>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>PedidodeCompra</processId>
+        <version>18</version>
+        <linkSequence>6</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>213</positionX>
+      <positionY>77</positionY>
+    </ProcessLinkBend>
+  </list>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>PedidodeCompra</processId>
+      <processVersion>18</processVersion>
+      <stateSequence>5</stateSequence>
+      <appKey>approval</appKey>
+      <appField>title</appField>
+      <description>Aprovação Pedido de Compras</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>PedidodeCompra</processId>
+      <processVersion>18</processVersion>
+      <stateSequence>5</stateSequence>
+      <appKey>approval</appKey>
+      <appField>description</appField>
+      <description></description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>PedidodeCompra</processId>
+      <processVersion>18</processVersion>
+      <stateSequence>5</stateSequence>
+      <appKey>approval</appKey>
+      <appField>highlight</appField>
+      <description>@[form:total_pedido]</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>PedidodeCompra</processId>
+      <processVersion>18</processVersion>
+      <stateSequence>5</stateSequence>
+      <appKey>approval</appKey>
+      <appField>approve</appField>
+      <description>9</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>PedidodeCompra</processId>
+      <processVersion>18</processVersion>
+      <stateSequence>5</stateSequence>
+      <appKey>approval</appKey>
+      <appField>reject</appField>
+      <description>12</description>
+    </ProcessAppConfiguration>
+  </list>
+  <list/>
+  <list/>
+</list>

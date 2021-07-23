@@ -1,0 +1,250 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<link type="text/css" rel="stylesheet" href="style.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="custom.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+</head>
+<body onload="init()" >
+
+<div class="fluig-style-guide">
+
+<form name="form" role="form">
+
+	<input type="hidden" id="json_sc" name="json_sc">
+	<input type="hidden" id="aprovador_sc" name="aprovador_sc">
+
+	<!-- Cabecalho do Formulario-->
+	<div class="panel panel-default">
+		<div class="fs-no-padding fs-no-margin panel-body">
+			<div class="fs-no-padding fs-no-margin col-md-2">
+				</div>
+		
+			<div class="text-center col-md-10">
+			    <h1>Solicitação de Compra</h1>
+			</div>
+		</div>
+	</div>
+
+	<!-- Cabecalho da Solicitacao -->
+	<div class="panel panel-primary">
+	    <div class="panel-heading">Dados da Solicitação</div>
+		<div class="panel-body">
+
+			<div id = "divLinha1" class="row">
+				<div class ="form-group col-md-2">
+					<label for="C1_NUM">N&uacute;mero SC</label>
+					<input type="text" class="form-control input-sm" id="C1_NUM" name="C1_NUM" >
+				</div>
+
+				<div class ="form-group col-md-2">
+					<label for="C1_SOLICIT">Solicitante</label>
+					<input type="text" class="form-control input-sm" id="C1_SOLICIT" name="C1_SOLICIT"  readonly="readonly">
+				</div>
+
+				<div class ="form-group col-md-3">
+					<label for="C1_UNIDREQ">Unidade Requisitante</label>
+					<input type="hidden" id="COD_C1_UNIDREQ" name="COD_C1_UNIDREQ"  value="01">
+					<input type="text" class="form-control input-sm" id="C1_UNIDREQ" name="C1_UNIDREQ"  readonly="readonly" value="RIAD">
+				</div>
+
+				<div class ="form-group col-md-5">
+					<label for="C1_FILIAL">Filial</label>
+					<input type="hidden" id="COD_C1_FILIAL" name="COD_C1_FILIAL"  >
+					<input
+						class="input-sm"
+					    type="zoom"
+					    id = "C1_FILIAL"
+					    name="C1_FILIAL"
+					    data-zoom="{
+					        'displayKey':'ZOOM',
+					        'datasetId':'filiais',
+					        'maximumSelectionLength':'1',
+					        'placeholder':'Informe a filial',
+					        'fields':[
+					            {
+					               'field':'ZOOM',
+					               'label':'Filial'
+					            }
+					        ]
+					     }"
+					/>
+				</div>
+
+			</div>
+
+			<div id = "divLinha1" class="row">
+				<div class ="form-group  col-md-2">
+					<label for="C1_EMISSAO">Data de Emissão</label>
+					<input type="text" class="form-control input-sm" id="C1_EMISSAO" name="C1_EMISSAO" >
+				</div>
+				
+				<div class ="form-group col-md-5">
+					<label for="C1_FILENT">Filial de Entrega</label>
+					<input type="hidden" id="COD_C1_FILENT" name="COD_C1_FILENT"  >
+					<input type="text" class="form-control input-sm" id="C1_FILENT" name="C1_FILENT" readonly="readonly">
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<!-- Itens da Solicitacao-->
+	<div class="panel panel-primary  fs-no-margin">
+	    <div class="panel-heading fs-no-margin">Itens da Solicitação</div>
+	    <div class="panel-body fs-xs-padding fs-xs-margin">
+			<div class="row fs-no-padding fs-no-margin">
+				<table 	tablename="listaProduto" 
+							id="listaProduto"  
+							nodeletebutton="true"
+							noaddbutton="true"
+							class="table table-striped table-hover table-condensed fs-xs-margin">
+					<thead>
+						<tr>
+							<td class="fs-xs-padding">
+								<div class=" text-center col-md-1 fs-xs-padding"># </div>
+								<div class="col-md-1 text-center fs-xs-padding">Item </div>
+								<div class="col-md-6 text-center fs-xs-padding">Produto </div>
+								<div class="col-md-2 text-center fs-xs-padding">Quantidade </div>
+								<div class="col-md-2 text-center fs-xs-padding">Unidade </div>
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						<td class="fs-xs-padding">
+							<div class="principal fs-xs-margin row">
+							
+								<div class ="form-group  fs-xs-padding col-md-1">
+									<i class="col-md-6 fs-no-padding flaticon flaticon-trash icon-md" onclick="Javascript:fnWdkRemoveChild(this)" style="cursor:pointer"></i>
+									<i class="col-md-6 fs-no-padding expande flaticon flaticon-div icon-md" onclick="Javascript:ExibeDetalhe(this)" style="cursor:pointer"></i>
+								</div>
+								
+								<div class ="form-group fs-xs-padding col-md-1">
+									<input type="text" class="form-control input-sm" id="item" name="item" readonly="readonly" >
+								</div>
+						
+								<div class ="form-group fs-xs-padding col-md-6">
+									<input type="hidden" id="cod_produto" name="cod_produto" readonly="readonly" >
+									<input
+										class="input-sm"
+									    type="zoom"
+									    id = "produto"
+									    name="produto"
+									    data-zoom="{
+									        'displayKey':'zoom',
+									        'datasetId':'produto',
+									        'maximumSelectionLength':'1',
+									        'placeholder':'Informe ao menos 3 primeiros caracteres',
+									        'fields':[
+									         	{
+									               'field':'zoom',
+									               'label':'Produto'
+									            }
+									        ]
+									     }"
+									/>
+								</div>
+		
+								<div class ="form-group fs-xs-padding col-md-2">
+									<input type="text" class="form-control input-sm" id="quantidade" name="quantidade" mask="#000.00">
+								</div>
+		
+								<div class ="form-group fs-xs-padding col-md-2">
+									<input type="text" class="form-control input-sm" id="unidade" name="unidade" readonly="readonly" >
+								</div>
+	
+							</div>
+	
+							<div class="Detalhe fs-xs-margin row">
+							
+								<div class="row">	
+									<div class ="form-group fs-xs-padding col-md-2">
+										<label for="datanescessidade">Data Necessidade</label>
+										<input type="text" class="CampoData form-control input-sm" id="datanescessidade"" name="datanescessidade" >
+									</div>
+									
+									<div class ="form-group fs-xs-padding col-md-5">
+										<label for="datanescessidade">Centro de Custo</label>										
+										<input type="hidden" id="cod_ccusto" name="cod_ccusto" readonly="readonly" >
+										<input
+											class="input-sm"
+										    type="zoom"
+										    id = "centro_custo"
+										    name="centro_custo"
+										    data-zoom="{
+										        'displayKey':'zoom',
+										        'datasetId':'centro_custo',
+										        'maximumSelectionLength':'1',
+										        'placeholder':'Informe o Centro de Custo',
+										        'fields':[
+										         	{
+										               'field':'zoom',
+										               'label':'Centro de Custo'
+										            }
+										        ]
+										     }"
+										/>
+									
+									</div>
+									
+									<div class ="form-group fs-xs-padding col-md-5">
+										<label for="frota">Frota</label>
+										<input type="text" class="form-control input-sm" id="frota"" name="frota" >
+									</div>
+								</div>		
+	
+								<div class="row">
+									<div class ="form-group  fs-xs-padding col-md-12">
+										<label for="observacao">Observação</label>
+										<input type="text" class="form-control input-sm" id="observacao"" name="observacao" >
+									</div>
+								</div>	
+	
+							</div>
+						</td>
+						
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="row fs-no-padding fs-no-margin">
+				<button type="button" class="btn btn-primary" onclick="incluiNovoItem(this)">Incluir Item</button>
+			</div>
+
+
+		</div>
+	</div>
+
+			<!-- 
+				<input
+				    type="zoom"
+				    id = "NomeProduto"
+				    name="NomeProduto"
+				    data-zoom="{
+				        'displayKey':'DESCRICAO',
+				        'datasetId':'dsProduto',
+				        'maximumSelectionLength':'1',
+				        'placeholder':'Escolha o Produto',
+				        'fields':[
+							{
+				              'field':'DESCRICAO',
+				              'label':'Produto',
+				              'standard':'true'
+				            }
+				        ]
+				     }"
+					/>
+				-->
+				
+
+
+</form>
+</div>
+</body>
+</html>
