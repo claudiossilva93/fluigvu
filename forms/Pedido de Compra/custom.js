@@ -79,7 +79,7 @@ function ExibeDetalhe(objeto){
 }
 
 
-function incluiNovoItem(objeto){
+function incluiNovoItem(){
 	
 	if($("#COD_C1_FILIAL").val()=="")
 	{
@@ -100,7 +100,6 @@ function incluiNovoItem(objeto){
 	});
 	
 	reloadZoomFilterValues ('produto___'+item, 'unidade,'+$('#COD_C1_UNIDREQ').val()+',filial,'+$('#COD_C1_FILIAL').val())
-	reloadZoomFilterValues ('centro_custo___'+item, 'unidade,'+$('#COD_C1_UNIDREQ').val()+',filial,'+$('#COD_C1_FILIAL').val())
 	
 	$("#dataEntrega___"+item).val($("#C1_EMISSAO").val());
 	
@@ -110,6 +109,8 @@ function incluiNovoItem(objeto){
     MaskEvent.initMask(inputs);
 	
 	GeraItem();
+	
+	return item;
 	
 }
 
@@ -198,7 +199,7 @@ function replaceAll(value, old_value, new_value)
 	return value;
 }
 
-function consultaCotacao(){
+function consultaPedido(){
 	
 	if($("#COD_C1_FILIAL").val()=="")
 	{
@@ -208,72 +209,62 @@ function consultaCotacao(){
 			});
 	}
 	
-	var numCotacao = $("#numCotacao").val();
+	var numPedido = $("#C1_NUM").val();
 	
-	if(numCotacao == ""){
+	if(numPedido == ""){
 		return FLUIGC.toast({
-			message: 'Necessário informar a cotação!',
+			message: 'Necessário informar o número do pedido!',
 			type: 'WARNING'
 		});
 	}
 	
 	var c1 = DatasetFactory.createConstraint("unidade", $("#COD_C1_UNIDREQ").val(), $("#COD_C1_UNIDREQ").val(), ConstraintType.MUST);
 	var c2 = DatasetFactory.createConstraint("filial", $("#COD_C1_FILIAL").val(), $("#COD_C1_FILIAL").val(), ConstraintType.MUST);
-	var c3 = DatasetFactory.createConstraint("numPedido", numCotacao, numCotacao, ConstraintType.MUST);
+	var c3 = DatasetFactory.createConstraint("nroPedido", numPedido, numPedido, ConstraintType.MUST);
 	var constraints   = new Array(c1, c2, c3);
 	
-	var consulta_cotacao = DatasetFactory.getDataset("consulta_cotacao", null, constraints, null);
+	var pedido_compra = DatasetFactory.getDataset("pedido_compra", null, constraints, null);
 	
-	console.log(consulta_cotacao)
+	console.log(pedido_compra)
 	
-	if(consulta_cotacao.values.length == 0)
+	if(pedido_compra.values.length == 0)
 	{
 		return FLUIGC.toast({
-			message: 'Cotação não encontrada no servidor!',
+			message: 'Pedido de compras não encontrada no servidor!',
 			type: 'WARNING'
 		});
 	}
 	
-	var modalHtml = `
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Produto</th>
-					<th>Quantidade</th>
-					<th>Preço</th>
-					<th>Total</th>
-					<th>Data Emissão</th>
-					<th>Fornecedor</th>
-				</tr>
-			</thead>
-			<tbody>
-				${
-					consulta_cotacao.values.map(x => {
-						return `<tr>
-									<td>${ x.produto }</td>
-									<td>${ x.quantidade }</td>
-									<td>${ x.preco }</td>
-									<td>${ x.total }</td>
-									<td>${ x.dataEmissao }</td>
-									<td>${ x.fornecedor }</td>
-								</tr>`
-					})
-				}
-			</tbpdy>
-		</table>
-	`;
+	window["fornecedor"].setValue( pedido_compra.values[0]["nome"] );
+	$("#C1_EMISSAO").val(pedido_compra.values[0]["emissaoPC"]);
+	$("#COD_FORNECEDOR").val(pedido_compra.values[0]["fornecedor"]);
+	$("#LOJA_FORNECEDOR").val(pedido_compra.values[0]["loja"]);
+	$("#cod_condicao_pagamento").val(pedido_compra.values[0]["condicaoPagamento"]);
+	window["condicao_pagamento"].setValue(pedido_compra.values[0]["descCondicaoPagamento"]);
+	$("#tipo_frete").val(pedido_compra.values[0]["tipoFrete"]);
+	$("#valorFrete").val( m_moeda( parseFloat( pedido_compra.values[0]["frete"] ).toFixed(2) ));
+	$("#despesas").val(m_moeda( parseFloat( pedido_compra.values[0]["despesa"] ).toFixed(2) ));
+	$("#seguro").val(m_moeda( parseFloat( pedido_compra.values[0]["seguro"] ).toFixed(2) ));
 	
-	var myModal = FLUIGC.modal({
-	    title: 'Cotação',
-	    content: modalHtml,
-	    id: 'fluig-modal',
-	    size: 'large',
-	    actions: [{
-	        'label': 'Close',
-	        'autoClose': true
-	    }]
-	}, function(err, data) {
-	});
+	for(var i = 0; i < pedido_compra.values.length; i++){
+		var item = incluiNovoItem();
+		
+		$("#cod_produto___" + item).val( pedido_compra.values[i]["produto"] );
+		window["produto___" + item].setValue( pedido_compra.values[i]["descricao"] )
+		$("#quantidade___" + item).val(m_moeda( parseFloat(  pedido_compra.values[i]["quantidade"] ).toFixed(2) ) );
+		$("#preco___" + item).val(m_moeda( parseFloat(  pedido_compra.values[i]["preco"] ).toFixed(2) ) );
+		$("#total___" + item).val(m_moeda( parseFloat(  pedido_compra.values[i]["total"] ).toFixed(2) ) );
+		$("#unidade___" + item).val( pedido_compra.values[i]["unidadeMedida"] );
+		$("#armazem___" + item).val( pedido_compra.values[i]["armazem"] );
+		$("#dataEntrega___" + item).val( pedido_compra.values[i]["dataEntrega"] );
+		$("#cod_tes___" + item).val( pedido_compra.values[i]["tes"] );		
+		$("#observacao___" + item).val( pedido_compra.values[i]["observacao"] );
+		if(pedido_compra.values[0]["tes"] != "")
+			window["tes___1"].setValue( pedido_compra.values[i]["tes"] )
+		
+	}
+	
+	calculaTotalPedido( );
 	
 }
 

@@ -38,7 +38,12 @@
 			<div id = "divLinha1" class="row">
 				<div class ="form-group col-md-2">
 					<label for="C1_NUM">N&uacute;mero PC</label>
-					<input type="text" class="form-control input-sm" id="C1_NUM" name="C1_NUM" readonly="readonly">
+					<div class="input-group">
+			            <input class="form-control" type="text" placeholder="Número do Pedido" name="C1_NUM" id="C1_NUM">
+			            <div class="input-group-addon" style="cursor: pointer;" onclick="consultaPedido()">
+			            	<i class="flaticon flaticon-search icon-sm"></i>
+			            </div>
+			        </div>
 				</div>
 
 				<div class ="form-group col-md-2">
@@ -75,17 +80,6 @@
 					/>
 				</div>
 
-			</div>
-			
-			<div class="row">
-				<div class="form-group col-md-3">
-			        <div class="input-group">
-			            <input class="form-control" type="text" placeholder="Número do Pedido" name="numCotacao" id="numCotacao">
-			            <div class="input-group-addon" style="cursor: pointer;" onclick="consultaCotacao()">
-			            	<i class="flaticon flaticon-search icon-sm"></i>
-			            </div>
-			        </div>
-			    </div>
 			</div>
 
 			<div class="row">
@@ -279,6 +273,7 @@
 										<input type="text" class="CampoData form-control input-sm" id="dataEntrega" name="dataEntrega" >
 									</div>
 									
+									<!-- 
 									<div class ="form-group fs-xs-padding col-md-4">
 										<label for="datanescessidade">Centro de Custo</label>										
 										<input type="hidden" id="cod_ccusto" name="cod_ccusto" readonly="readonly" >
@@ -302,6 +297,7 @@
 										/>
 									
 									</div>
+									 -->
 									<div class ="form-group fs-xs-padding col-md-4">
 										<label for="datanescessidade">Tes</label>										
 										<input type="hidden" id="cod_tes" name="cod_tes" readonly="readonly" >
@@ -348,7 +344,7 @@
 			</div>
 
 			<div class="row fs-no-padding fs-no-margin">
-				<button type="button" class="btn btn-primary" onclick="incluiNovoItem(this)">Incluir Item</button>
+				<button type="button" class="btn btn-primary" onclick="incluiNovoItem()">Incluir Item</button>
 			</div>
 
 
