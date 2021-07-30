@@ -28,6 +28,7 @@ function createDataset(fields, constraints, sortFields) {
 	dsResult.addColumn("seguro");
 	dsResult.addColumn("despesa");
 	dsResult.addColumn("solicitante");	
+	dsResult.addColumn("cotacao");	
 	
 	try{
 		
@@ -95,7 +96,8 @@ function createDataset(fields, constraints, sortFields) {
         	                  result.Retorno_consultarPedido[info].frete, 
         	                  result.Retorno_consultarPedido[info].seguro,
         	                  result.Retorno_consultarPedido[info].despesa,        	                  
-        	                  result.Retorno_consultarPedido[info].solicitante
+        	                  result.Retorno_consultarPedido[info].solicitante,
+        	                  result.Retorno_consultarPedido[info].cotacao
         	                ])
         }
 		

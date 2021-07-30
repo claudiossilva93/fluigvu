@@ -245,6 +245,8 @@ function consultaPedido(){
 	$("#valorFrete").val( m_moeda( parseFloat( pedido_compra.values[0]["frete"] ).toFixed(2) ));
 	$("#despesas").val(m_moeda( parseFloat( pedido_compra.values[0]["despesa"] ).toFixed(2) ));
 	$("#seguro").val(m_moeda( parseFloat( pedido_compra.values[0]["seguro"] ).toFixed(2) ));
+	$("#numCotacao").val(pedido_compra.values[0]["cotacao"]);
+	
 	
 	for(var i = 0; i < pedido_compra.values.length; i++){
 		var item = incluiNovoItem();
@@ -265,6 +267,84 @@ function consultaPedido(){
 	}
 	
 	calculaTotalPedido( );
+	
+}
+
+function consultaCotacao(){
+	
+	if($("#COD_C1_FILIAL").val()=="")
+	{
+		return FLUIGC.toast({
+				message: 'Necessário informar a filial!',
+				type: 'WARNING'
+			});
+	}
+	
+	var numPedido = $("#C1_NUM").val();
+	
+	if(numPedido == ""){
+		return FLUIGC.toast({
+			message: 'Pedido de compras sem cotação!',
+			type: 'WARNING'
+		});
+	}
+	
+	var c1 = DatasetFactory.createConstraint("unidade", $("#COD_C1_UNIDREQ").val(), $("#COD_C1_UNIDREQ").val(), ConstraintType.MUST);
+	var c2 = DatasetFactory.createConstraint("filial", $("#COD_C1_FILIAL").val(), $("#COD_C1_FILIAL").val(), ConstraintType.MUST);
+	var c3 = DatasetFactory.createConstraint("numPedido", numPedido, numPedido, ConstraintType.MUST);
+	var constraints   = new Array(c1, c2, c3);
+	
+	var consulta_cotacao = DatasetFactory.getDataset("consulta_cotacao", null, constraints, null);
+	
+	if(consulta_cotacao.values.length == 0)
+	{
+		return FLUIGC.toast({
+			message: 'Cotação não encontrada no servidor!',
+			type: 'WARNING'
+		});
+	}
+	
+	var modalHtml = `
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Produto</th>
+					<th>Quantidade</th>
+					<th>Preço</th>
+					<th>Total</th>
+					<th>Data Emissão</th>
+					<th>Fornecedor</th>
+				</tr>
+			</thead>
+			<tbody>
+				${
+					consulta_cotacao.values.map(x => {
+						return `<tr>
+									<td>${ x.produto }</td>
+									<td>${ m_moeda( parseFloat(  x.quantidade ).toFixed(2) ) }</td>
+									<td>${ m_moeda( parseFloat(  x.preco ).toFixed(2) ) }</td>
+									<td>${ m_moeda( parseFloat(  x.total ).toFixed(2) ) }</td>
+									<td>${ x.dataEmissao }</td>
+									<td>${ x.fornecedor }</td>
+								</tr>`
+					})
+				}
+			</tbpdy>
+		</table>
+	`;
+	
+	var myModal = FLUIGC.modal({
+	    title: 'Cotação',
+	    content: modalHtml,
+	    id: 'fluig-modal',
+	    size: 'large',
+	    actions: [{
+	        'label': 'Close',
+	        'autoClose': true
+	    }]
+	}, function(err, data) {
+	});
+	
 	
 }
 
